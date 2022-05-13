@@ -7,11 +7,16 @@ package implementaciones;
 import daos.RepoAnimales;
 import daos.RepoCuidadores;
 import daos.RepoEspecies;
+import daos.RepoGuias;
 import daos.RepoHabitats;
+import daos.RepoItinerarios;
+import daos.RepoZonas;
 import entidades.Animal;
 import entidades.Cuidador;
 import entidades.Especie;
+import entidades.Guia;
 import entidades.Habitat;
+import entidades.Itinerario;
 import interfaces.IDatos;
 import java.util.List;
 import org.bson.types.ObjectId;
@@ -28,7 +33,10 @@ public class FDatos implements IDatos {
     private final RepoCuidadores repoCuidadores;
     private final RepoEspecies repoEspecies;
     private final RepoAnimales repoAnimales;
-
+    private final RepoGuias repoGuias;
+    private final RepoZonas repoZonas;
+    private final RepoItinerarios repoItinerarios;
+    
     /**
      * Constructor que inicializa todos los repos
      */
@@ -37,6 +45,9 @@ public class FDatos implements IDatos {
         this.repoCuidadores = new RepoCuidadores();
         this.repoEspecies = new RepoEspecies();
         this.repoAnimales = new RepoAnimales();
+        this.repoGuias = new RepoGuias();
+        this.repoZonas = new RepoZonas();
+        this.repoItinerarios = new RepoItinerarios();
     }
 
     /**
@@ -196,5 +207,43 @@ public class FDatos implements IDatos {
     @Override
     public void eliminarAnimal(ObjectId idEspecie, ObjectId idAnimal) {
         this.repoAnimales.eliminarAnimal(idEspecie, idAnimal);
+    }
+
+    /**
+     * Manda a llamar el método consultarGuias del RepoGuias para obtener
+     * una lista con todos los guias en la base de datos, regresa null
+     * en caso de encontrar nada.
+     *
+     * @return lista con todos los guias en la base de datos, null
+     * en caso de no encontrar guias.
+     */
+    @Override
+    public List<Guia> consultarGuias() {
+        return this.repoGuias.consultarGuias();
+    }
+
+    /**
+     * Manda a llamar el método agregarItinerario del RepoGuias para agregar una 
+     * nueva referencia a itinerario dentro del guia que coincida con el id 
+     * dado en el parámetro.
+     *
+     * @param idGuia id del guia a actualizar.
+     * @param itinerario Itinerario a agregar en la lista de itinerarios del guia.
+     */
+    @Override
+    public void agregarItinerario(ObjectId idGuia, Itinerario itinerario) {
+        this.repoGuias.agregarItinerario(idGuia, itinerario);
+    }
+    
+    /**
+     * Manda a llamar el método guardarGuia del RepoGuias para guardar un nuevo
+     * guia en la base de datos.
+     *
+     * @param guia guia a guardar en la colección "guias"
+     * @return true en caso de que se logre guardar, false en caso contrario
+     */
+    @Override
+    public boolean guardarGuia(Guia guia) {
+        return this.repoGuias.guardarGuia(guia);
     }
 }
