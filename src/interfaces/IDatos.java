@@ -10,6 +10,7 @@ import entidades.Especie;
 import entidades.Guia;
 import entidades.Habitat;
 import entidades.Itinerario;
+import entidades.Zona;
 import java.util.List;
 import org.bson.types.ObjectId;
 
@@ -33,6 +34,8 @@ public interface IDatos {
     
     public boolean guardarEspecie(Especie especie);
     
+    public boolean guardarCuidador(Cuidador cuidador);
+    
     public void agregarEspecieCuidador(ObjectId idCuidador, Especie especie);
     
     public void agregarEspecieHabitat(ObjectId idHabitat, ObjectId idEspecie);
@@ -53,4 +56,15 @@ public interface IDatos {
     
     // Zonas
     
+    public boolean guardarZona(Zona zona);
+    
+    public void agregarEspecie(ObjectId idZona, ObjectId idEspecie);
+    
+    public void agregarHabitat(ObjectId idZona, ObjectId idHabitat);
+    
+    // Itinerario
+    
+    public boolean guardarItinerario(Itinerario itinerario);
+    
+    public Itinerario verificarNombreItinerario(String nombre);
 }

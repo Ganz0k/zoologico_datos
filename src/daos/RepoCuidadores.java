@@ -36,7 +36,7 @@ public class RepoCuidadores {
     }
 
     /**
-     * Mpetodo privado que regresa la colección "empleados" y la sujeta al
+     * Método privado que regresa la colección "empleados" y la sujeta al
      * formato de la clase Cuidador
      *
      * @return colección "empleados" y la sujetada al formato de la clase
@@ -46,6 +46,25 @@ public class RepoCuidadores {
         return this.basedatos.getCollection("empleados", Cuidador.class);
     }
 
+    /**
+     * Método que guarda un cuidador dado por el parámetro, en su colección 
+     * correspondiente. 
+     * 
+     * @param cuidador Cuidador a guardar en la colección "zonas"
+     * @return true en caso de lograr guardar, false en caso contrario
+     */
+    public boolean guardarCuidador(Cuidador cuidador){
+        try {
+            MongoCollection<Cuidador> coleccion = this.getColeccion();
+            coleccion.insertOne(cuidador);
+            return true;
+        } catch (Exception ex) {
+            System.err.println("No se pudo agregar el cuidador");
+            ex.printStackTrace();
+            return false;
+        }
+    }
+    
     /**
      * Método que realiza una consulta de todos los empleados registrados en la
      * base de datos utilizando el operador $eq en el atributo discriminador

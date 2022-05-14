@@ -17,6 +17,7 @@ import entidades.Especie;
 import entidades.Guia;
 import entidades.Habitat;
 import entidades.Itinerario;
+import entidades.Zona;
 import interfaces.IDatos;
 import java.util.List;
 import org.bson.types.ObjectId;
@@ -245,5 +246,80 @@ public class FDatos implements IDatos {
     @Override
     public boolean guardarGuia(Guia guia) {
         return this.repoGuias.guardarGuia(guia);
+    }
+
+    /**
+     * Manda a llamar el método guardarCuidador del RepoCuidador para guardar 
+     * un nuevo cuidador en la base de datos.
+     * 
+     * @param cuidador Cuidador a guardar en la colección "cuidador"
+     * @return true en caso de que se logre guardar, false en caso contrario.
+     */
+    @Override
+    public boolean guardarCuidador(Cuidador cuidador) {
+        return this.repoCuidadores.guardarCuidador(cuidador);
+    }
+
+    /**
+     * Manda a llamar el método guardarZona del RepoZonas para guardar
+     * una nueva zona en la base de datos.
+     * 
+     * @param zona Zona a guardar en la coleccion "zonas"
+     * @return true en caso de que se logre guardar, false en caso contrario.
+     */
+    @Override
+    public boolean guardarZona(Zona zona) {
+        return this.repoZonas.guardarZona(zona);
+    }
+
+    /**
+     * Manda a llamar el método agregarEspecie de la RepoZonas para guardar una
+     * nueva especie dentro de la zona con el id dado por el parámetro en la
+     * base de datos.
+     * 
+     * @param idZona id de la zona a actualizar en la coleccion "zonas"
+     * @param idEspecie id de la especie a agregar dentro de la zona
+     */
+    @Override
+    public void agregarEspecie(ObjectId idZona, ObjectId idEspecie) {
+        this.repoZonas.agregarEspecie(idZona, idEspecie);
+    }
+
+    /**
+     * Manda a llamar el método agregarHabitat de la RepoZonas para guardar un
+     * nuevo habitat dentro de la zona con el id dado por el parámetro en la
+     * base de datos.
+     * 
+     * @param idZona id de la zona a actualizar en la coleccion "zonas"
+     * @param idHabitat id del habitat a agregar dentro de la zona.
+     */
+    @Override
+    public void agregarHabitat(ObjectId idZona, ObjectId idHabitat) {
+        this.repoZonas.agregarHabitat(idZona, idHabitat);
+    }
+
+    /**
+     * Manda a llamar el método guardarItinerario de la RepoItinerarios para
+     * guardar un nuevo itinerario dado por el parámetro, en la base de datos.
+     * 
+     * @param itinerario Itinerario a guardar.
+     * @return true en caso de lograr agregar, false en caso contrario.
+     */
+    @Override
+    public boolean guardarItinerario(Itinerario itinerario) {
+        return this.repoItinerarios.guardarItinerario(itinerario);
+    }
+
+    /**
+     * Manda a llamar el método verificarNombreItinerario de la RepoItinerarios
+     * para consultar un itinerario que tenga el mismo nombre que el dado por
+     * el parametro.
+     * 
+     * @param nombre Nombre del iinerario a verificar.
+     * @return obtiene el itinerario en caso de coincidir, null en caso contrario.
+     */
+    @Override
+    public Itinerario verificarNombreItinerario(String nombre) {
+        return this.repoItinerarios.verificarNombreItinerario(nombre);
     }
 }
