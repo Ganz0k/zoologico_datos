@@ -39,8 +39,12 @@ public class FDatos implements IDatos {
     private final RepoGuias repoGuias;
     private final RepoZonas repoZonas;
     private final RepoItinerarios repoItinerarios;
+<<<<<<< HEAD
     private final RepoAdministradores repoAdministradores;
     
+=======
+
+>>>>>>> 1b55b24d7d60e0ec92f12d09890989822d7258b0
     /**
      * Constructor que inicializa todos los repos
      */
@@ -215,12 +219,12 @@ public class FDatos implements IDatos {
     }
 
     /**
-     * Manda a llamar el método consultarGuias del RepoGuias para obtener
-     * una lista con todos los guias en la base de datos, regresa null
-     * en caso de encontrar nada.
+     * Manda a llamar el método consultarGuias del RepoGuias para obtener una
+     * lista con todos los guias en la base de datos, regresa null en caso de
+     * encontrar nada.
      *
-     * @return lista con todos los guias en la base de datos, null
-     * en caso de no encontrar guias.
+     * @return lista con todos los guias en la base de datos, null en caso de no
+     * encontrar guias.
      */
     @Override
     public List<Guia> consultarGuias() {
@@ -228,18 +232,19 @@ public class FDatos implements IDatos {
     }
 
     /**
-     * Manda a llamar el método agregarItinerario del RepoGuias para agregar una 
-     * nueva referencia a itinerario dentro del guia que coincida con el id 
-     * dado en el parámetro.
+     * Manda a llamar el método agregarItinerario del RepoGuias para agregar una
+     * nueva referencia a itinerario dentro del guia que coincida con el id dado
+     * en el parámetro.
      *
      * @param idGuia id del guia a actualizar.
-     * @param itinerario Itinerario a agregar en la lista de itinerarios del guia.
+     * @param itinerario Itinerario a agregar en la lista de itinerarios del
+     * guia.
      */
     @Override
     public void agregarItinerario(ObjectId idGuia, Itinerario itinerario) {
         this.repoGuias.agregarItinerario(idGuia, itinerario);
     }
-    
+
     /**
      * Manda a llamar el método guardarGuia del RepoGuias para guardar un nuevo
      * guia en la base de datos.
@@ -253,9 +258,9 @@ public class FDatos implements IDatos {
     }
 
     /**
-     * Manda a llamar el método guardarCuidador del RepoCuidador para guardar 
-     * un nuevo cuidador en la base de datos.
-     * 
+     * Manda a llamar el método guardarCuidador del RepoCuidador para guardar un
+     * nuevo cuidador en la base de datos.
+     *
      * @param cuidador Cuidador a guardar en la colección "cuidador"
      * @return true en caso de que se logre guardar, false en caso contrario.
      */
@@ -265,9 +270,9 @@ public class FDatos implements IDatos {
     }
 
     /**
-     * Manda a llamar el método guardarZona del RepoZonas para guardar
-     * una nueva zona en la base de datos.
-     * 
+     * Manda a llamar el método guardarZona del RepoZonas para guardar una nueva
+     * zona en la base de datos.
+     *
      * @param zona Zona a guardar en la coleccion "zonas"
      * @return true en caso de que se logre guardar, false en caso contrario.
      */
@@ -280,7 +285,7 @@ public class FDatos implements IDatos {
      * Manda a llamar el método agregarEspecie de la RepoZonas para guardar una
      * nueva especie dentro de la zona con el id dado por el parámetro en la
      * base de datos.
-     * 
+     *
      * @param idZona id de la zona a actualizar en la coleccion "zonas"
      * @param idEspecie id de la especie a agregar dentro de la zona
      */
@@ -293,7 +298,7 @@ public class FDatos implements IDatos {
      * Manda a llamar el método agregarHabitat de la RepoZonas para guardar un
      * nuevo habitat dentro de la zona con el id dado por el parámetro en la
      * base de datos.
-     * 
+     *
      * @param idZona id de la zona a actualizar en la coleccion "zonas"
      * @param idHabitat id del habitat a agregar dentro de la zona.
      */
@@ -305,7 +310,7 @@ public class FDatos implements IDatos {
     /**
      * Manda a llamar el método guardarItinerario de la RepoItinerarios para
      * guardar un nuevo itinerario dado por el parámetro, en la base de datos.
-     * 
+     *
      * @param itinerario Itinerario a guardar.
      * @return true en caso de lograr agregar, false en caso contrario.
      */
@@ -316,11 +321,12 @@ public class FDatos implements IDatos {
 
     /**
      * Manda a llamar el método verificarNombreItinerario de la RepoItinerarios
-     * para consultar un itinerario que tenga el mismo nombre que el dado por
-     * el parametro.
-     * 
+     * para consultar un itinerario que tenga el mismo nombre que el dado por el
+     * parametro.
+     *
      * @param nombre Nombre del iinerario a verificar.
-     * @return obtiene el itinerario en caso de coincidir, null en caso contrario.
+     * @return obtiene el itinerario en caso de coincidir, null en caso
+     * contrario.
      */
     @Override
     public Itinerario verificarNombreItinerario(String nombre) {
@@ -328,6 +334,7 @@ public class FDatos implements IDatos {
     }
 
     /**
+<<<<<<< HEAD
      * Manda a llamar el método getAdministrador del RepoAdministradores para
      * regresar un administrador que coincida con el nombre y la contraseña que
      * se proveen como parámetros
@@ -339,5 +346,16 @@ public class FDatos implements IDatos {
     @Override
     public Administrador getAdministrador(String nombre, String contrasenia) {
         return this.repoAdministradores.getAdministrador(nombre, contrasenia);
+=======
+     * Manda a llamar el método que consulta todos los itinerarios de la base de
+     * datos.
+     *
+     * @return lista con todos los itinerarios en la base de datos, null en caso
+     * de que no se encuentre nada
+     */
+    @Override
+    public List<Itinerario> consultarItinerarios() {
+        return this.repoItinerarios.consultarItinerarios();
+>>>>>>> 1b55b24d7d60e0ec92f12d09890989822d7258b0
     }
 }
