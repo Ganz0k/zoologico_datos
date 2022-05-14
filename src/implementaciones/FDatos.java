@@ -39,12 +39,8 @@ public class FDatos implements IDatos {
     private final RepoGuias repoGuias;
     private final RepoZonas repoZonas;
     private final RepoItinerarios repoItinerarios;
-<<<<<<< HEAD
     private final RepoAdministradores repoAdministradores;
-    
-=======
 
->>>>>>> 1b55b24d7d60e0ec92f12d09890989822d7258b0
     /**
      * Constructor que inicializa todos los repos
      */
@@ -334,7 +330,6 @@ public class FDatos implements IDatos {
     }
 
     /**
-<<<<<<< HEAD
      * Manda a llamar el método getAdministrador del RepoAdministradores para
      * regresar un administrador que coincida con el nombre y la contraseña que
      * se proveen como parámetros
@@ -346,7 +341,9 @@ public class FDatos implements IDatos {
     @Override
     public Administrador getAdministrador(String nombre, String contrasenia) {
         return this.repoAdministradores.getAdministrador(nombre, contrasenia);
-=======
+    }
+    
+    /**
      * Manda a llamar el método que consulta todos los itinerarios de la base de
      * datos.
      *
@@ -356,6 +353,5 @@ public class FDatos implements IDatos {
     @Override
     public List<Itinerario> consultarItinerarios() {
         return this.repoItinerarios.consultarItinerarios();
->>>>>>> 1b55b24d7d60e0ec92f12d09890989822d7258b0
     }
 }

@@ -46,13 +46,9 @@ public interface IDatos {
     public void guardarAnimal(ObjectId idEspecie, Animal animal);
 
     public void eliminarAnimal(ObjectId idEspecie, ObjectId idAnimal);
-<<<<<<< HEAD
     
     public Administrador getAdministrador(String nombre, String contrasenia);
     
-=======
-
->>>>>>> 1b55b24d7d60e0ec92f12d09890989822d7258b0
     // Guias
     public List<Guia> consultarGuias();
 
