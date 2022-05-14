@@ -10,6 +10,7 @@ import daos.RepoEspecies;
 import daos.RepoGuias;
 import daos.RepoHabitats;
 import daos.RepoItinerarios;
+import daos.RepoQuejas;
 import daos.RepoZonas;
 import entidades.Animal;
 import entidades.Cuidador;
@@ -17,6 +18,7 @@ import entidades.Especie;
 import entidades.Guia;
 import entidades.Habitat;
 import entidades.Itinerario;
+import entidades.Queja;
 import entidades.Zona;
 import interfaces.IDatos;
 import java.util.List;
@@ -37,6 +39,7 @@ public class FDatos implements IDatos {
     private final RepoGuias repoGuias;
     private final RepoZonas repoZonas;
     private final RepoItinerarios repoItinerarios;
+    private final RepoQuejas repoQuejas;
 
     /**
      * Constructor que inicializa todos los repos
@@ -49,6 +52,7 @@ public class FDatos implements IDatos {
         this.repoGuias = new RepoGuias();
         this.repoZonas = new RepoZonas();
         this.repoItinerarios = new RepoItinerarios();
+        this.repoQuejas = new RepoQuejas();
     }
 
     /**
@@ -335,5 +339,15 @@ public class FDatos implements IDatos {
     @Override
     public List<Itinerario> consultarItinerarios() {
         return this.repoItinerarios.consultarItinerarios();
+    }
+
+    /**
+     * Manda a llamar el método que guarda una queja en la base de datos.
+     *
+     * @param queja La queja que se va a guardar
+     * @return Verdadero si la queja se pudo guardar, falso de forma contraria.
+     */
+    public boolean guardarQueja(Queja queja) {
+        return this.repoQuejas.guardarQueja(queja);
     }
 }
