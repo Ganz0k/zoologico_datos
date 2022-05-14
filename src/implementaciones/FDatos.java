@@ -4,6 +4,7 @@
  */
 package implementaciones;
 
+import daos.RepoAdministradores;
 import daos.RepoAnimales;
 import daos.RepoCuidadores;
 import daos.RepoEspecies;
@@ -11,6 +12,7 @@ import daos.RepoGuias;
 import daos.RepoHabitats;
 import daos.RepoItinerarios;
 import daos.RepoZonas;
+import entidades.Administrador;
 import entidades.Animal;
 import entidades.Cuidador;
 import entidades.Especie;
@@ -37,6 +39,7 @@ public class FDatos implements IDatos {
     private final RepoGuias repoGuias;
     private final RepoZonas repoZonas;
     private final RepoItinerarios repoItinerarios;
+    private final RepoAdministradores repoAdministradores;
     
     /**
      * Constructor que inicializa todos los repos
@@ -49,6 +52,7 @@ public class FDatos implements IDatos {
         this.repoGuias = new RepoGuias();
         this.repoZonas = new RepoZonas();
         this.repoItinerarios = new RepoItinerarios();
+        this.repoAdministradores = new RepoAdministradores();
     }
 
     /**
@@ -321,5 +325,19 @@ public class FDatos implements IDatos {
     @Override
     public Itinerario verificarNombreItinerario(String nombre) {
         return this.repoItinerarios.verificarNombreItinerario(nombre);
+    }
+
+    /**
+     * Manda a llamar el método getAdministrador del RepoAdministradores para
+     * regresar un administrador que coincida con el nombre y la contraseña que
+     * se proveen como parámetros
+     * @param nombre del administrador
+     * @param contrasenia contraseña del administrador
+     * @return un administrador que coincida con el nombre y la contraseña de
+     * los parámetros, null si no encuentra nada
+     */
+    @Override
+    public Administrador getAdministrador(String nombre, String contrasenia) {
+        return this.repoAdministradores.getAdministrador(nombre, contrasenia);
     }
 }
