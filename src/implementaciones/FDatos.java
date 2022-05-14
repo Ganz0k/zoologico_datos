@@ -41,11 +41,8 @@ public class FDatos implements IDatos {
     private final RepoGuias repoGuias;
     private final RepoZonas repoZonas;
     private final RepoItinerarios repoItinerarios;
-<<<<<<< HEAD
     private final RepoQuejas repoQuejas;
-=======
     private final RepoAdministradores repoAdministradores;
->>>>>>> 5e1af0c50c8522ea2670483dad48660518c54dec
 
     /**
      * Constructor que inicializa todos los repos
@@ -58,11 +55,8 @@ public class FDatos implements IDatos {
         this.repoGuias = new RepoGuias();
         this.repoZonas = new RepoZonas();
         this.repoItinerarios = new RepoItinerarios();
-<<<<<<< HEAD
         this.repoQuejas = new RepoQuejas();
-=======
         this.repoAdministradores = new RepoAdministradores();
->>>>>>> 5e1af0c50c8522ea2670483dad48660518c54dec
     }
 
     /**
