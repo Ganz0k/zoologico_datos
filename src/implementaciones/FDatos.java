@@ -4,6 +4,7 @@
  */
 package implementaciones;
 
+import daos.RepoAdministradores;
 import daos.RepoAnimales;
 import daos.RepoCuidadores;
 import daos.RepoEspecies;
@@ -12,6 +13,7 @@ import daos.RepoHabitats;
 import daos.RepoItinerarios;
 import daos.RepoQuejas;
 import daos.RepoZonas;
+import entidades.Administrador;
 import entidades.Animal;
 import entidades.Cuidador;
 import entidades.Especie;
@@ -39,7 +41,11 @@ public class FDatos implements IDatos {
     private final RepoGuias repoGuias;
     private final RepoZonas repoZonas;
     private final RepoItinerarios repoItinerarios;
+<<<<<<< HEAD
     private final RepoQuejas repoQuejas;
+=======
+    private final RepoAdministradores repoAdministradores;
+>>>>>>> 5e1af0c50c8522ea2670483dad48660518c54dec
 
     /**
      * Constructor que inicializa todos los repos
@@ -52,7 +58,11 @@ public class FDatos implements IDatos {
         this.repoGuias = new RepoGuias();
         this.repoZonas = new RepoZonas();
         this.repoItinerarios = new RepoItinerarios();
+<<<<<<< HEAD
         this.repoQuejas = new RepoQuejas();
+=======
+        this.repoAdministradores = new RepoAdministradores();
+>>>>>>> 5e1af0c50c8522ea2670483dad48660518c54dec
     }
 
     /**
@@ -329,6 +339,20 @@ public class FDatos implements IDatos {
         return this.repoItinerarios.verificarNombreItinerario(nombre);
     }
 
+    /**
+     * Manda a llamar el método getAdministrador del RepoAdministradores para
+     * regresar un administrador que coincida con el nombre y la contraseña que
+     * se proveen como parámetros
+     * @param nombre del administrador
+     * @param contrasenia contraseña del administrador
+     * @return un administrador que coincida con el nombre y la contraseña de
+     * los parámetros, null si no encuentra nada
+     */
+    @Override
+    public Administrador getAdministrador(String nombre, String contrasenia) {
+        return this.repoAdministradores.getAdministrador(nombre, contrasenia);
+    }
+    
     /**
      * Manda a llamar el método que consulta todos los itinerarios de la base de
      * datos.

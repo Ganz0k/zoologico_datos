@@ -4,6 +4,7 @@
  */
 package interfaces;
 
+import entidades.Administrador;
 import entidades.Animal;
 import entidades.Cuidador;
 import entidades.Especie;
@@ -45,7 +46,9 @@ public interface IDatos {
     public void guardarAnimal(ObjectId idEspecie, Animal animal);
 
     public void eliminarAnimal(ObjectId idEspecie, ObjectId idAnimal);
-
+    
+    public Administrador getAdministrador(String nombre, String contrasenia);
+    
     // Guias
     public List<Guia> consultarGuias();
 
