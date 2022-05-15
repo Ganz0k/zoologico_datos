@@ -92,26 +92,4 @@ public class RepoGuias {
         }
     }
 
-    
-    /**
-     * Método que busca un guía según su itinerario en la lista de guías
-     * 
-     * @param itinerario
-     * @return 
-     */
-    public Guia consultarGuia(Itinerario itinerario) {
-        List<Guia> guias = this.consultarGuias();
-
-        for (Guia guia : guias) {
-            List<Itinerario> itinerarios = guia.getItinerarios();
-            for (Itinerario itinerario1 : itinerarios) {
-                if (itinerario1.equals(itinerario)) {
-                    return guia;
-                }
-            }
-
-        }
-
-        return null;
-    }
 }
