@@ -381,4 +381,15 @@ public class FDatos implements IDatos {
     public Guia consultarGuia(Itinerario itinerario) {
         return this.repoGuias.consultarGuia(itinerario);
     }
+    
+    /**
+     * Manda a llamar el método consultarZonas de la RepoZonas para recuperar
+     * todas las zonas registradas en la base de datos.
+     *
+     * @return Lista con las zonas registradas, null en caso de no encontrar
+     * registros.
+     */
+    public List<Zona> consultarZonas() {
+        return this.repoZonas.consultarZonas();
+    }
 }

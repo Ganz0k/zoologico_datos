@@ -57,6 +57,9 @@ public interface IDatos {
     public boolean guardarGuia(Guia guia);
 
     // Zonas
+    
+    public List<Zona> consultarZonas();
+    
     public boolean guardarZona(Zona zona);
 
     public void agregarEspecie(ObjectId idZona, ObjectId idEspecie);
