@@ -70,4 +70,8 @@ public interface IDatos {
 
     public List<Itinerario> consultarItinerarios();
 
+    public Guia consultarGuia(Itinerario itinerario);
+
+ 
+
 }

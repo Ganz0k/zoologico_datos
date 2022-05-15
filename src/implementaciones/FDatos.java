@@ -337,6 +337,7 @@ public class FDatos implements IDatos {
      * Manda a llamar el método getAdministrador del RepoAdministradores para
      * regresar un administrador que coincida con el nombre y la contraseña que
      * se proveen como parámetros
+     *
      * @param nombre del administrador
      * @param contrasenia contraseña del administrador
      * @return un administrador que coincida con el nombre y la contraseña de
@@ -346,7 +347,7 @@ public class FDatos implements IDatos {
     public Administrador getAdministrador(String nombre, String contrasenia) {
         return this.repoAdministradores.getAdministrador(nombre, contrasenia);
     }
-    
+
     /**
      * Manda a llamar el método que consulta todos los itinerarios de la base de
      * datos.
@@ -367,5 +368,17 @@ public class FDatos implements IDatos {
      */
     public boolean guardarQueja(Queja queja) {
         return this.repoQuejas.guardarQueja(queja);
+    }
+
+    /**
+     * Método que hace la llamada al método que regresa un Guía según su
+     * itinerario
+     *
+     * @param itinerario El itinerario del guía que buscamos
+     * @return El guía asociado con el itinerario
+     */
+    @Override
+    public Guia consultarGuia(Itinerario itinerario) {
+        return this.repoGuias.consultarGuia(itinerario);
     }
 }
