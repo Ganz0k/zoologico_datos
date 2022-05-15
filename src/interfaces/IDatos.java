@@ -11,6 +11,7 @@ import entidades.Especie;
 import entidades.Guia;
 import entidades.Habitat;
 import entidades.Itinerario;
+import entidades.Queja;
 import entidades.Zona;
 import java.util.List;
 import org.bson.types.ObjectId;
@@ -46,9 +47,9 @@ public interface IDatos {
     public void guardarAnimal(ObjectId idEspecie, Animal animal);
 
     public void eliminarAnimal(ObjectId idEspecie, ObjectId idAnimal);
-    
+
     public Administrador getAdministrador(String nombre, String contrasenia);
-    
+
     // Guias
     public List<Guia> consultarGuias();
 
@@ -72,6 +73,6 @@ public interface IDatos {
 
     public Guia consultarGuia(Itinerario itinerario);
 
- 
-
+    // Queja
+    public boolean guardarQueja(Queja queja);
 }

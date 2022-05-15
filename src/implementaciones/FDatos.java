@@ -366,6 +366,7 @@ public class FDatos implements IDatos {
      * @param queja La queja que se va a guardar
      * @return Verdadero si la queja se pudo guardar, falso de forma contraria.
      */
+    @Override
     public boolean guardarQueja(Queja queja) {
         return this.repoQuejas.guardarQueja(queja);
     }
@@ -379,6 +380,7 @@ public class FDatos implements IDatos {
      */
     @Override
     public Guia consultarGuia(Itinerario itinerario) {
-        return this.repoGuias.consultarGuia(itinerario);
+        return this.repoItinerarios.consultarGuia(itinerario);
+    }
     }
 }

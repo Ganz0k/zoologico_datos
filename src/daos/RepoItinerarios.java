@@ -104,8 +104,8 @@ public class RepoItinerarios {
      * @return El guía si hay uno que coincidam, nulo de forma contraria.
      */
     public Guia consultarGuia(Itinerario itinerario) {
-        IDatos guiasr = new FDatos();
-        List<Guia> guias = guiasr.consultarGuias();
+        IDatos fDatos = new FDatos();
+        List<Guia> guias = fDatos.consultarGuias();
 
         for (Guia guia : guias) {
             List<Itinerario> itinerarios = guia.getItinerarios();
