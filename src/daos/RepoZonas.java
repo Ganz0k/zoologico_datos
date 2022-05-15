@@ -9,6 +9,8 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import conexion.ConexionBD;
 import entidades.Zona;
+import java.util.ArrayList;
+import java.util.List;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
@@ -85,5 +87,20 @@ public class RepoZonas {
         coleccion.updateOne(Filters.eq("_id", idZona), new Document()
                 .append("$push", new Document()
                         .append("idsHabitat", idHabitat)));
+    }
+    
+    /**
+     * Método que realiza una consulta de todos las zonas registradas en la
+     * colección de zonas en la base de datos. Los añade todos a una lista y
+     * la devuelve al sistema, regresa null en caso de que no se encuentre nada
+     *
+     * @return lista con todos los hábitats en la base de datos, null en caso de
+     * que no se encuentre nada
+     */
+    public List<Zona> consultarZonas() {
+        MongoCollection<Zona> coleccion = this.getColeccion();
+        List<Zona> listaZonas = new ArrayList<>();
+        coleccion.find().into(listaZonas);
+        return listaZonas;
     }
 }

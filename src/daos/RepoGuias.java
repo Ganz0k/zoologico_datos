@@ -42,7 +42,7 @@ public class RepoGuias {
      * @return colección "guias" y la sujetada al formato de la clase Guia
      */
     private MongoCollection<Guia> getColeccion() {
-        return this.basedatos.getCollection("guias", Guia.class);
+        return this.basedatos.getCollection("empleados", Guia.class);
     }
 
     /**
@@ -56,7 +56,7 @@ public class RepoGuias {
     public List<Guia> consultarGuias() {
         MongoCollection<Guia> coleccion = this.getColeccion();
         List<Guia> listaGuias = new ArrayList<>();
-        coleccion.find().into(listaGuias);
+        coleccion.find(Filters.eq("discriminador", "gu")).into(listaGuias);
         return listaGuias;
     }
 
@@ -86,7 +86,7 @@ public class RepoGuias {
             coleccion.insertOne(guia);
             return true;
         } catch (Exception ex) {
-            System.err.println("No se pudo agregar el hábitat");
+            System.err.println("No se pudo agregar el guía");
             ex.printStackTrace();
             return false;
         }
