@@ -97,26 +97,26 @@ public class RepoItinerarios {
         return listaItinerarios;
     }
 
-    /**
-     * Método que busca un guía según su itinerario en la lista de guías
-     *
-     * @param itinerario El itinerario desde el que se buscará el guía
-     * @return El guía si hay uno que coincidam, nulo de forma contraria.
-     */
-    public Guia consultarGuia(Itinerario itinerario) {
-        IDatos fDatos = new FDatos();
-        List<Guia> guias = fDatos.consultarGuias();
-
-        for (Guia guia : guias) {
-            List<Itinerario> itinerarios = guia.getItinerarios();
-            for (Itinerario itinerario1 : itinerarios) {
-                if (itinerario1.equals(itinerario)) {
-                    return guia;
-                }
-            }
-
-        }
-
-        return null;
-    }
+//    /**
+//     * Método que busca un guía según su itinerario en la lista de guías
+//     *
+//     * @param itinerario El itinerario desde el que se buscará el guía
+//     * @return El guía si hay uno que coincidam, nulo de forma contraria.
+//     */
+//    public Guia consultarGuia(Itinerario itinerario) {
+//        MongoCollection<Guia> coleccion;
+//         this.baseDatos.getCollection("empleados", Itinerario.class);
+//
+//        for (Guia guia : guias) {
+//            List<Itinerario> itinerarios = guia.getItinerarios();
+//            for (Itinerario itinerario1 : itinerarios) {
+//                if (itinerario1.equals(itinerario)) {
+//                    return guia;
+//                }
+//            }
+//
+//        }
+//
+//        return null;
+//    }
 }

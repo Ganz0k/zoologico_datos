@@ -4,6 +4,7 @@
  */
 package daos;
 
+import static com.mongodb.client.model.Filters.eq;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
@@ -23,7 +24,7 @@ import org.bson.types.ObjectId;
  * @author PC OSCAR
  */
 public class RepoGuias {
-
+    
     private final MongoDatabase basedatos;
 
     /**
@@ -92,4 +93,25 @@ public class RepoGuias {
         }
     }
 
+    /**
+     * Método que obtiene un guía de la coleccion mediante su itinerario
+     *
+     * @param idItinerario El id del itinerario que lo identificará
+     * @return El guia en cuestión
+     */
+    public Guia consultarGuia(ObjectId idItinerario) {
+        MongoCollection<Guia> coleccion = this.getColeccion();
+        
+        List<Guia> guias = coleccion.find(eq("itinerarios._id", idItinerario))
+                .into(new ArrayList<>());
+        
+        for (Guia guia : guias) {
+            if (guia != null) {
+                return guia;
+            }
+        }
+        
+        return null;
+    }
+    
 }

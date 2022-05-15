@@ -57,10 +57,11 @@ public interface IDatos {
 
     public boolean guardarGuia(Guia guia);
 
+    public Guia consultarGuia(ObjectId itinerario);
+
     // Zonas
-    
     public List<Zona> consultarZonas();
-    
+
     public boolean guardarZona(Zona zona);
 
     public void agregarEspecie(ObjectId idZona, ObjectId idEspecie);
@@ -73,8 +74,6 @@ public interface IDatos {
     public Itinerario verificarNombreItinerario(String nombre);
 
     public List<Itinerario> consultarItinerarios();
-
-    public Guia consultarGuia(Itinerario itinerario);
 
     // Queja
     public boolean guardarQueja(Queja queja);

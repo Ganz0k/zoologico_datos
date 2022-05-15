@@ -379,11 +379,10 @@ public class FDatos implements IDatos {
      * @return El guía asociado con el itinerario
      */
     @Override
-    public Guia consultarGuia(Itinerario itinerario) {
-        return this.repoItinerarios.consultarGuia(itinerario);
+    public Guia consultarGuia(ObjectId itinerario) {
+        return this.repoGuias.consultarGuia(itinerario);
     }
-    }
-    
+
     /**
      * Manda a llamar el método consultarZonas de la RepoZonas para recuperar
      * todas las zonas registradas en la base de datos.
