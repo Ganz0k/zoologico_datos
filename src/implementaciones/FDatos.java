@@ -390,6 +390,7 @@ public class FDatos implements IDatos {
      * @return Lista con las zonas registradas, null en caso de no encontrar
      * registros.
      */
+    @Override
     public List<Zona> consultarZonas() {
         return this.repoZonas.consultarZonas();
     }

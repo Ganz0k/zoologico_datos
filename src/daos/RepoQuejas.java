@@ -10,6 +10,9 @@ import conexion.ConexionBD;
 import entidades.Queja;
 
 /**
+ * Repositorio de Quejas, actúa como una clase que utiliza la conexión generada
+ * con la base de datos para hacer operaciones de adición y consulta en la
+ * colección quejas.
  *
  * @author julio
  */
@@ -27,8 +30,8 @@ public class RepoQuejas {
     }
 
     /**
-     * Método privado que regresa la colección "quejas" y la sujeta al formato de
-     * la clase Queja.
+     * Método privado que regresa la colección "quejas" y la sujeta al formato
+     * de la clase Queja.
      *
      * @return coleccion "quejas" ligada al formato de la clase Queja.
      */

@@ -8,10 +8,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import conexion.ConexionBD;
-import entidades.Guia;
 import entidades.Itinerario;
-import implementaciones.FDatos;
-import interfaces.IDatos;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -96,27 +93,4 @@ public class RepoItinerarios {
         coleccion.find().into(listaItinerarios);
         return listaItinerarios;
     }
-
-//    /**
-//     * Método que busca un guía según su itinerario en la lista de guías
-//     *
-//     * @param itinerario El itinerario desde el que se buscará el guía
-//     * @return El guía si hay uno que coincidam, nulo de forma contraria.
-//     */
-//    public Guia consultarGuia(Itinerario itinerario) {
-//        MongoCollection<Guia> coleccion;
-//         this.baseDatos.getCollection("empleados", Itinerario.class);
-//
-//        for (Guia guia : guias) {
-//            List<Itinerario> itinerarios = guia.getItinerarios();
-//            for (Itinerario itinerario1 : itinerarios) {
-//                if (itinerario1.equals(itinerario)) {
-//                    return guia;
-//                }
-//            }
-//
-//        }
-//
-//        return null;
-//    }
 }
